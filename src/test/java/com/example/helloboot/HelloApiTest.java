@@ -27,8 +27,8 @@ public class HelloApiTest {
     void failsHelloApi() {
         TestRestTemplate rest = new TestRestTemplate();
 
-        ResponseEntity<String> resp = rest.getForEntity("http://localhost:8080/hello?name={name}", String.class, "");
-//        ResponseEntity<String> resp = rest.getForEntity("http://localhost:8080/hello?name={name}", String.class, null);
+//        ResponseEntity<String> resp = rest.getForEntity("http://localhost:8080/hello?name={name}", String.class, "");
+        ResponseEntity<String> resp = rest.getForEntity("http://localhost:8080/hello?name={name}", String.class, (Object) null);
 
         // status code 200
         Assertions.assertThat(resp.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
