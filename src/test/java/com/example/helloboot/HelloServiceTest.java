@@ -17,7 +17,7 @@ public class HelloServiceTest {
     @Test
     void helloDecorator() {
         HelloDecorator decorator = new HelloDecorator(name -> name);
-        String ret = decorator.sayHello("Test");
+        String ret = decorator.sayHello("Testlll");
         Assertions.assertThat(ret).isEqualTo("*Test*");
     }
 }
