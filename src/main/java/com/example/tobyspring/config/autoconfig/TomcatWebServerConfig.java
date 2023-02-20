@@ -1,6 +1,7 @@
 package com.example.tobyspring.config.autoconfig;
 
 import com.example.tobyspring.config.ConditionalMyOnClass;
+import com.example.tobyspring.config.EnableMyConfigurationProperties;
 import com.example.tobyspring.config.MyAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
@@ -11,13 +12,18 @@ import org.springframework.context.annotation.ConditionContext;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 import org.springframework.util.ClassUtils;
 
+@EnableMyConfigurationProperties(ServerProperties.class)
 @MyAutoConfiguration
 @ConditionalMyOnClass("org.apache.catalina.startup.Tomcat")
 public class TomcatWebServerConfig {
+
     @Bean("tomcatWebServerFactory")
     @ConditionalOnMissingBean
-    public ServletWebServerFactory servletWebServerFactory() {
-        return new TomcatServletWebServerFactory();
+    public ServletWebServerFactory servletWebServerFactory(ServerProperties serverProperties) {
+        TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
+        factory.setContextPath(serverProperties.getContextPath());
+        factory.setPort(serverProperties.getPort());
+        return factory;
     }
 
     static class TomcatCondition implements Condition {
