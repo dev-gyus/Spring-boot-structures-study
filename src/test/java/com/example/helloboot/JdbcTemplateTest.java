@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class JdbcTemplateTest {
     @Autowired
     JdbcTemplate jdbcTemplate;
+    //;;
 
     @BeforeEach
     void init() {
