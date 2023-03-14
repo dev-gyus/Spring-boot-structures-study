@@ -1,6 +1,0 @@
-com.example.tobyspring.config.autoconfig.DispatcherServletConfig
-com.example.tobyspring.config.autoconfig.TomcatWebServerConfig
-com.example.tobyspring.config.autoconfig.JettyWebServerConfig
-com.example.tobyspring.config.autoconfig.PropertyPlaceHolderConfig
-com.example.tobyspring.config.autoconfig.PropertyPostProcessorConfig
-com.example.tobyspring.config.autoconfig.DataSourceConfig

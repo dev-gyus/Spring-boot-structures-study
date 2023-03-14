@@ -4,10 +4,11 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.JdbcTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
-@HellobootTest
+@JdbcTest
 @Transactional
 public class JdbcTemplateTest {
     @Autowired
@@ -22,7 +23,7 @@ public class JdbcTemplateTest {
     void insertAndQuery() {
         jdbcTemplate.update("insert into hello values(?, ?)", "toby", 3);
         jdbcTemplate.update("insert into hello values(?, ?)", "spring", 1);
-        //;;
+
         Long count = jdbcTemplate.queryForObject("select count(*) from hello", Long.class);
         Assertions.assertThat(count).isEqualTo(2);
     }
