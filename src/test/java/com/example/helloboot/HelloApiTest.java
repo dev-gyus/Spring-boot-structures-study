@@ -21,7 +21,7 @@ public class HelloApiTest {
         Assertions.assertThat(resp.getStatusCode()).isEqualTo(HttpStatus.OK);
         // header Contents-Type = text/plain
         Assertions.assertThat(resp.getHeaders().getFirst(HttpHeaders.CONTENT_TYPE)).startsWith(MediaType.TEXT_PLAIN_VALUE);
-        // body Hello Spring
+        // body Hello Spring;;
         Assertions.assertThat(resp.getBody()).isEqualTo("*Hello Spring*");
     }
 
