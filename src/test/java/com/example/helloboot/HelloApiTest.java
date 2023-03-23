@@ -31,7 +31,7 @@ public class HelloApiTest {
 
 //        ResponseEntity<String> resp = rest.getForEntity("http://localhost:8080/hello?name={name}", String.class, "");
         ResponseEntity<String> resp = rest.getForEntity("http://localhost:9090/app/hello?name={name}", String.class, (Object) null);
-
+//;;;
         // status code 200
         Assertions.assertThat(resp.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
         // header Contents-Type = text/plain
