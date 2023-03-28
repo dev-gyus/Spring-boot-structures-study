@@ -12,12 +12,13 @@ import org.springframework.http.ResponseEntity;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class HelloApiTest {
     @Test
+
     void helloApi() {
         TestRestTemplate rest = new TestRestTemplate();
 
         ResponseEntity<String> resp = rest.getForEntity("http://localhost:9090/app/hello?name={name}", String.class, "Spring");
 
-        // status code 200
+        // status code
         Assertions.assertThat(resp.getStatusCode()).isEqualTo(HttpStatus.OK);
         // header Contents-Type = text/plain
         Assertions.assertThat(resp.getHeaders().getFirst(HttpHeaders.CONTENT_TYPE)).startsWith(MediaType.TEXT_PLAIN_VALUE);
