@@ -18,7 +18,7 @@ public class HelloApiTest {
 
         ResponseEntity<String> resp = rest.getForEntity("http://localhost:9090/app/hello?name={name}", String.class, "Spring");
 
-        // status code;;;
+        // status code
         Assertions.assertThat(resp.getStatusCode()).isEqualTo(HttpStatus.OK);
         // header Contents-Type = text/plain
         Assertions.assertThat(resp.getHeaders().getFirst(HttpHeaders.CONTENT_TYPE)).startsWith(MediaType.TEXT_PLAIN_VALUE);
